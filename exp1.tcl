@@ -35,7 +35,7 @@ $ns duplex-link $n3 $n6 10Mb 10ms DropTail
 
 
 # Setup a TCP connection
-set tcp [new Agent/$variant]
+set tcp [new Agent/TCP/$variant]
 $tcp set class_ 2
 $ns attach-agent $n1 $tcp
 set sink [new Agent/TCPSink]
