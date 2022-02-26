@@ -48,7 +48,7 @@ $ns attach-agent $n1 $tcp1
 set sink1 [new Agent/TCPSink]
 $ns attach-agent $n4 $sink1
 $ns connect $tcp1 $sink1
-$tcp set fid_ 1
+$tcp1 set fid_ 1
 
 
 # Set up second TCP connection
