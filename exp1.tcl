@@ -35,7 +35,15 @@ $ns duplex-link $n3 $n6 10Mb 10ms DropTail
 
 
 # Setup a TCP connection
-set tcp [new Agent/TCP/$variant]
+if {$variant eq "Tahoe"} {
+	set tcp [new Agent/TCP]
+} elif {$variant eq "Reno"} {
+	set tcp [new Agent/TCP/Reno]
+} elif {$variant eq "NewReno"} {
+	set tcp [new Agent/TCP/Newreno]
+} elif {$variant eq "Vegas"} {
+	set tcp [new Agent/TCP/Vegas]
+}
 $tcp set class_ 2
 $ns attach-agent $n1 $tcp
 set sink [new Agent/TCPSink]
