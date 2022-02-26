@@ -90,10 +90,10 @@ $cbr set random_ false
 
 # Schedule events for the CBR and FTP agents
 $ns at 0.1 "$cbr start"
-$ns at 1.0 "$ftp start"
 $ns at 1.0 "$ftp1 start"
-$ns at 8.5 "$ftp stop"
+$ns at 1.0 "$ftp2 start"
 $ns at 8.5 "$ftp1 stop"
+$ns at 8.5 "$ftp2 stop"
 $ns at 9.5 "$cbr stop"
 
 # Call the finish procedure
