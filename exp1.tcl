@@ -37,11 +37,11 @@ $ns duplex-link $n3 $n6 10Mb 10ms DropTail
 # Setup a TCP connection
 if {$variant eq "Tahoe"} {
 	set tcp [new Agent/TCP]
-} elif {$variant eq "Reno"} {
+} elseif {$variant eq "Reno"} {
 	set tcp [new Agent/TCP/Reno]
-} elif {$variant eq "NewReno"} {
+} elseif {$variant eq "NewReno"} {
 	set tcp [new Agent/TCP/Newreno]
-} elif {$variant eq "Vegas"} {
+} elseif {$variant eq "Vegas"} {
 	set tcp [new Agent/TCP/Vegas]
 }
 $tcp set class_ 2
