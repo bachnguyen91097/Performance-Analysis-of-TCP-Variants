@@ -1,2 +1,29 @@
-# Performance-Analysis-of-TCP-Variants
 Performance Analysis of TCP Variants
+
+This project is conducted by team BTTB: Bach Nguyen (nguyen.bac@northeastern.edu) and
+Thai Pham (pham.tha@northeastern.edu)
+
+Goal: to analyze the behaviour of the TCP variants using metrics such as average throughput, number of
+packets dropped and latency under conditions such as Congestion (experiment 1), Fairness (experiment 2) and
+Influence of Queuing (experiment 3)
+
+Congestion: Setup the topology as given in the project description. To test the TCP variant's behaviour under
+congestion, we analyze the link n2->n3 whose bandwidth is shared between TCP and UDP. We change TCP variant and
+vary the CBR rate to analyze the metrics mentioned above. In addition, we try different combinations of start and
+end time (Schedule event section).
+
+Fairness: The setup is almost the same, except we introduce another CP variant to test if TCP variant X is fair to
+TCP variant Y and vice-versa. Since there are two variants in the same link, by analyzing their average
+throughput we can determine if we can determine if any variant dominates the other. The number of packets dropped
+can also be used to analyze fairness.
+
+Influence of Queuing: We analyze the performance of different variants when it implements the different queuing
+disciplines like DropTail and Random Early Drop (RED). Same setup from experiment 1 and have one TCP flow (N1-N4) and
+one CBR/UDP (N5-N6) flow. Wait until TCP flow is constant and then start CBR. Analyze the performance of the TCP
+variants over different queuing strategies.
+
+Methodology for running experiments: To carry out the experiments, firstly we build out the topology setup in a tcl
+file for experiments 1,2 and 3. For each of these experiments, we will write parse files to parse the trace files
+generated. In these parse files, we will need to extract the needed values from the trace file to calculate throughput,
+latency, number of packet drops. In addition, we will write scripts to generate some inputs automatically for running
+experiments. Finally, we plan to calculate the metrics value and plot the results using gnuplot from Python.
