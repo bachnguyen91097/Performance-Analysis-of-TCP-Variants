@@ -54,10 +54,10 @@ $ns queue-limit $n3 $n6 10
 
 
 # Setup a TCP connection
-if {variant eq "Reno"} {
+if {$variant eq "Reno"} {
 	set tcp [new Agent/TCP/Reno]
 	set sink [new Agent/TCPSink]
-} elseif {variant eq "SACK"} {
+} elseif {$variant eq "SACK"} {
 	set tcp [new Agent/TCP/Sack1]
 	set sink [new Agent/TCPSink/Sack1]
 }
