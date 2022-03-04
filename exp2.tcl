@@ -33,7 +33,8 @@ $ns duplex-link $n3 $n2 10Mb 10ms DropTail
 $ns duplex-link $n3 $n4 10Mb 10ms DropTail
 $ns duplex-link $n3 $n6 10Mb 10ms DropTail
 
-
+# Setting up the queue limit
+$ns queue-limit $n2 $n3 10
 
 # Set up first TCP connection
 if {$v1 eq "Reno"} {
