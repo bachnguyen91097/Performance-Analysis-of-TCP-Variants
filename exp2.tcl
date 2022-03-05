@@ -44,7 +44,7 @@ if {$v1 eq "Reno"} {
 } elseif {$v1 eq "Vegas"} {
 	set tcp1 [new Agent/TCP/Vegas]
 }
-$tcp1 set class_ 2
+
 $ns attach-agent $n1 $tcp1
 set sink1 [new Agent/TCPSink]
 $ns attach-agent $n4 $sink1
@@ -58,12 +58,12 @@ if {$v2 eq "Reno"} {
 } elseif {$v2 eq "Vegas"} {
 	set tcp2 [new Agent/TCP/Vegas]
 }
-$tcp2 set class_ 3
+
 $ns attach-agent $n5 $tcp2
 set sink2 [new Agent/TCPSink]
 $ns attach-agent $n6 $sink2
 $ns connect $tcp2 $sink2
-$tcp1 set fid_ 3
+$tcp2 set fid_ 2
 
 # Setup first FTP over TCP connection
 set ftp1 [new Application/FTP]
@@ -79,6 +79,7 @@ $ns attach-agent $n2 $udp
 set null [new Agent/Null]
 $ns attach-agent $n3 $null
 $ns connect $udp $null
+
 
 # Setup a CBR over UDP connection
 set cbr [new Application/Traffic/CBR]
