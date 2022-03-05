@@ -11,7 +11,7 @@ def get_results(variant):
     drop_rate_list = []
 
     for cbr_rate in cbr_list:
-        os.system("/course/cs4700f12/ns-allinone-2.35/bin/ns exp1.tcl " + variant + " " + str(cbr_rate))
+        os.system("ns exp1.tcl " + variant + " " + str(cbr_rate))
         trace_analysis = open(variant + '_' + str(cbr_rate) + '_output.tr').readlines()
         line_count = 0
         bits = 0
