@@ -53,7 +53,7 @@ def get_results(variant):
         throughput = bits / duration / (1024 * 1024)
         throughput_list.append(throughput)
 
-        pack = {x for x in t_send.viewkeys() if x in t_arr.viewkeys()}
+        pack = {x for x in t_send.keys() if x in t_arr.keys()}
         for i in pack:
             start = t_send[i]
             end = t_arr[i]
@@ -113,6 +113,9 @@ def draw_graph():
         throughput_mapper[variant] = throughput_list
         latency_mapper[variant] = latency_list
         drop_rate_mapper[variant] = drop_rate_list
+    print(throughput_mapper)
+    print(latency_mapper)
+    print(drop_rate_mapper)
 
     plot_throughput_graph(cbr_list, throughput_mapper)
     plot_latency_graph(cbr_list, latency_mapper)
@@ -120,3 +123,4 @@ def draw_graph():
 
 if __name__ == "__main__":
     draw_graph()
+    os.system("rm *.tr")
